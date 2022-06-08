@@ -2100,17 +2100,21 @@ figure figcaption {
 
 
 
-      @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
-body{
+
+
+
+ @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
+/* body{
 	font-family: 'Poppins', sans-serif;
 	font-weight: 300;
 	font-size: 15px;
 	line-height: 1.7;
-	color: #c4c3ca;
-	background-color: #1f2029;
+	color: #f2ebeb;
+	background-color: #ffffff;
 	overflow-x: hidden;
-}
+} */
 a {
 	cursor: pointer;
   transition: all 200ms linear;
@@ -2119,7 +2123,7 @@ a:hover {
 	text-decoration: none;
 }
 .link {
-  color: #c4c3ca;
+  color: #f2f2f2;
 }
 .link:hover {
   color: #ffeba7;
@@ -2130,13 +2134,16 @@ p {
   line-height: 1.7;
 }
 h4 {
-  font-weight: 600;
+  font-weight: 700;
+  color:white;
 }
 h6 span{
   padding: 0 20px;
   text-transform: uppercase;
   font-weight: 700;
+  color:rgb(234, 232, 232);
 }
+
 .section{
   position: relative;
   width: 100%;
@@ -2288,25 +2295,25 @@ h6 span{
 }
 
 .form-group input:-ms-input-placeholder  {
-  color: #c4c3ca;
+  color: #efeff3;
   opacity: 0.7;
   -webkit-transition: all 200ms linear;
     transition: all 200ms linear;
 }
 .form-group input::-moz-placeholder  {
-  color: #c4c3ca;
+  color: #efeded;
   opacity: 0.7;
   -webkit-transition: all 200ms linear;
     transition: all 200ms linear;
 }
 .form-group input:-moz-placeholder  {
-  color: #c4c3ca;
+  color: #efeef4;
   opacity: 0.7;
   -webkit-transition: all 200ms linear;
     transition: all 200ms linear;
 }
 .form-group input::-webkit-input-placeholder  {
-  color: #c4c3ca;
+  color: #efeaea;
   opacity: 0.7;
   -webkit-transition: all 200ms linear;
     transition: all 200ms linear;
