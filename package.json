@@ -12,7 +12,7 @@
     "bank",
     "banksystem"
   ],
-  "author": "Sonu Kumar Kushwaha <flyingsonu736@gmail.com>",
+  "author": "Rohan Ranjan <rohanranjan5555@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.20.0",
