@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const users = require('../model/allUser');
-const customers = require('../model/allUser');
+const newUser = require('../model/newUser');
+const allUsers = require('../model/allUser');
 const historyModel = require('../model/histoyModel');
 
 
@@ -11,8 +11,35 @@ router.get('/', (req,res)=> {
 
 
 router.get('/login', (req,res)=> {
-    res.render('login')
+    res.render('login', {title: "Login", msg:''})
 });
+
+router.post('/login', (req, res)=>{
+    const {logemail, logpass} = req.body;
+    const query = {
+        email: logemail,
+        password: logpass
+    }
+    newUser.findOne(query, (err, user)=>{
+        if(!err && user!=null)
+            res.send('valid user');
+        else res.send('invalid user');
+    })
+})
+
+router.post('/signup', (req, res)=>{
+    const {logname, logemail, logpass} = req.body;
+    const NewUser = new newUser({
+        name: logname,
+        email: logemail,
+        password: logpass
+    });
+    NewUser.save().then(()=>{
+        res.send(`${logname} is successfully registered`);
+    }).catch(err=>{
+        console.log(err);
+    })
+})
 
 //  ADD USER
 router.get('/adduser', (req, res) => {
@@ -22,7 +49,7 @@ router.get('/adduser', (req, res) => {
 router.post('/adduser',(req, res) =>{
     
     const {userName, userEmail, userNumber, userAmount} = req.body;
-    const User = new customers({
+    const User = new allUsers({
         name: userName,
         email: userEmail,
         contact: userNumber,
@@ -38,7 +65,7 @@ router.post('/adduser',(req, res) =>{
 
 //- View All User
 router.get('/data',(req,res) => {
-    const allData = customers.find({});
+    const allData = allUsers.find({});
     allData.exec((err, data) => {
         if(err){
             throw err;
@@ -53,7 +80,7 @@ router.get('/data',(req,res) => {
 // Delete User
 router.get('/delete/:id',(req,res)=> {
  const id = req.params.id;
- const updateData = customers.findByIdAndDelete({"_id":id});
+ const updateData = allUsers.findByIdAndDelete({"_id":id});
  updateData.exec((err,data) => {
      if(err){throw err}
      else{
@@ -64,8 +91,8 @@ router.get('/delete/:id',(req,res)=> {
 
 router.get("/view/:id",(req,res) => {
     const id = req.params.id;
-    const Sender = customers.find({"_id": id});
-    const allUser = customers.find({});
+    const Sender = allUsers.find({"_id": id});
+    const allUser = allUsers.find({});
     Sender.exec((err,uData)=>{
         if(err)
         {
@@ -104,8 +131,8 @@ router.post('/transfer',(req,res) => {
         res.render('sucess',{title: "sucess", value:"", msg: "", errmsg: "All fields are require!"});
     }else{
     
-        const Sender = customers.find({"_id": SenderID})
-        const Reciver = customers.find({"name": reciverName, "email": reciverEmail});
+        const Sender = allUsers.find({"_id": SenderID})
+        const Reciver = allUsers.find({"name": reciverName, "email": reciverEmail});
   
 
         Promise.all([Sender,Reciver]).then(([senderData,reciverData]) => {
@@ -117,7 +144,7 @@ router.post('/transfer',(req,res) => {
                
                 else{
                 let updateAmount = parseInt(c.amount) - parseInt(transferAmount);
-                await customers.findOneAndUpdate({"name" : SenderName}, {"$set": {"amount": updateAmount}});
+                await allUsers.findOneAndUpdate({"name" : SenderName}, {"$set": {"amount": updateAmount}});
                 history.save().then((r)=>{
                    
                 }).catch(err => {console.log(err)});
@@ -125,7 +152,7 @@ router.post('/transfer',(req,res) => {
                 reciverData.forEach( async (e) => {
                     let updateAmount = parseInt(e.amount) + parseInt(transferAmount);
                   
-                    await customers.findOneAndUpdate({"name": reciverName}, {"$set": {"amount": updateAmount }})
+                    await allUsers.findOneAndUpdate({"name": reciverName}, {"$set": {"amount": updateAmount }})
                 })
                 }
 
