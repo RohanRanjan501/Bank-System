@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./components/headTag') -%>
+        <style>
+            .far,
+            .fas {
+                font-size: 8rem;
+            }
+        </style>
+</head>
+
+<body>
+    <%- include('./components/navbar') -%>
+
+
+
+        <% if( value=="" ){%>
+            <div class="alert alert-danger text-center " role="alert">
+                <%= errmsg %>
+            </div>
+            <%} %>
+
+                <% if(msg !="" ) {%>
+                    <div class="alert alert-success text-center " role="alert">
+                        <%= msg %>
+                    </div>
+                    <%} %>
+
+
+                        <!-- icon -->
+                        <div class="container my-3 d-flex justify-content-center">
+                            <% if(value !="" ){%>
+                                <i class="far fa-check-square"></i>
+
+                                <%}else{%>
+                                    <i class="fas fa-times"></i>
+                                    <%} %>
+
+                        </div>
+
+                        <div class="container my-5  d-flex justify-content-center">
+
+                            <div class="container my-5  d-flex justify-content-center">
+                                <a id="back" class="btn btn-dark mx-2"> Back </a>
+                                <% if( value !="" ){%>
+                                    <a href="/history/<%= email %>" class="btn btn-dark mx-2"> Transaction History </a>
+                                    <%} %>
+                            </div>
+                        </div>
+
+                        <%- include('./components/bootstrapScript') -%>
+</body>
+
+</html>

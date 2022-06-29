@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./components/headTag') -%>
+        <link rel="stylesheet" href="css/user.css">
+</head>
+
+<body>
+    <%- include('./components/navbar') -%>
+
+        <% if (hide===true) { %>
+            <div style="text-align: center; margin-top:100px">
+                <form action="/admin" method="post">
+                    <input name="adminPass" type="password" placeholder="Enter admin password">
+                    <button class="btn btn-primary" type="submit">Login</button>
+                </form>
+            </div>
+            <% } %>
+
+                <% if (hide===false) { %>
+                    <div style="width: 20%; margin: 50px auto;">
+                        <h2>Hello, Admin</h2>
+                        <div id="viewAccount"><button id="viewAccountBtn"
+                                style="height: 100px; width: 300px; font-size: larger;" class="btn btn-primary">View
+                                Account</button>
+                        </div>
+                        <div><a href="/deposit"><button 
+                                style="height: 100px; width: 300px; font-size: larger;" class="btn btn-primary">Deposit Money</button></a>
+                        </div>
+                        <div><a href="/addUser"><button style="height: 100px; width: 300px; font-size: larger;"
+                                    class="btn btn-primary">Add Account</button></a></div>
+                        <div id="removeAccount"><button id="removeAccountBtn"
+                                style="height: 100px; width: 300px; font-size: larger;" class="btn btn-primary">Remove
+                                Account</button></div>
+                        <% if(msg !="" ) {%>
+                            <div class="alert alert-success text-center " role="alert">
+                                <%= msg %>
+                            </div>
+                            <%} %>
+                    </div>
+                    <% } %>
+                        <%- include('./components/bootstrapScript') -%>
+                            <script>
+                                document.getElementById("viewAccountBtn").addEventListener('click', () => {
+                                    document.getElementById("viewAccount").innerHTML += `<form action="/accountDetails" method="post">
+                                        <input name="email" id="viewAccountEmail" type="text" placeholder="Enter email">
+                                        <button class="btn btn-primary" type="submit">Proceed</button>
+                                    </form>`;
+
+                                });
+
+                                document.getElementById("removeAccountBtn").addEventListener('click', () => {
+                                    document.getElementById("removeAccount").innerHTML += `<form action="/remove" method="post">
+                                        <input name="email" id="removeAccountEmail" type="text" placeholder="Enter email">
+                                        <button class="btn btn-primary" type="submit">Remove</button>
+                                    </form>`;
+
+                                })
+                            </script>
+                            <%- include('./components/bootstrapScript') -%>
+</body>
+
+</html>

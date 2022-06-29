@@ -9,22 +9,21 @@
         <!-- - Back to all users -->
 
         <div class="container mt-2">
-          <a href="/" class="btn btn-secondary fw-bold ">&larr; Back</a>
+          <a id="back" class="btn btn-secondary fw-bold ">&larr; Back</a>
       </div>
      
 <div class="container mt-5">
  <div class="container mt-5 bg-primary text-center text-light fw-30 p-2">
-   <h3>All Transections</h3>
+   <h3>All Transactions</h3>
  </div>
 
     <table class="table mt-2">
         <thead class="bg-primary text-light">
           <tr>
             <th scope="col">Sender</th>
-            <th scope="col">Reciver</th>
+            <th scope="col">Receiver</th>
             <th scope="col">Amount</th>
             <th scope="col">Data</th>
-            <th scope="col">Remove</th>
             
           </tr>
         </thead>
@@ -36,11 +35,6 @@
                 <td><%= e.rEmail %></td>
                 <td><%= e.amount  %></td>
                 <td><%= e.date  %></td>
-                <td>
-                  <a href="/remove/<%=e._id %>" class="btn btn-danger" >
-                  <i class="fa fa-minus" ></i>
-                </a>
-                </td>
               </tr>
                             
               <%}) %>        

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./components/headTag') -%>
+    <link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+    <%- include('./components/navbar') -%>
+
+    <div style="text-align: center; width: 30%; margin: 25px auto;">
+        <img src="images/person_1.jpeg" alt="User image">
+        <h1>
+            <%= user.name %>
+        </h1>
+        <h3>Contact : <%= user.contact %></h3>
+        <h3>Email : <%= user.email %></h3>
+        <h3>Account Balance : <%= user.amount %></h3>
+        <a id="back" class="btn btn-secondary ">&larr; Back</a>
+    </div>
+
+    <%- include('./components/bootstrapScript') -%>
+</body>
+</html>

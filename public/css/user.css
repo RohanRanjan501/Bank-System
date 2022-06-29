@@ -1,0 +1,21 @@
+.row{
+    padding: 20px 0px;    
+}
+
+img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%
+}
+
+h1{
+    margin: 30px auto;
+    font-size: 3em;
+}
+
+button{
+    height: 100px;
+    /* width: 300px; */
+    margin: 20px auto;
+    font-size: larger;
+}

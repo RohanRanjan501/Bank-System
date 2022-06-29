@@ -37,7 +37,7 @@
         <!-- - Back to all users -->
 
         <div class="container mt-2">
-          <a href="/data" class="btn btn-secondary fw-bold ">&larr; Back</a>
+          <a id="back" class="btn btn-secondary fw-bold ">&larr; Back</a>
       </div>
 
     <div class="container bg-primary  text-center p-2 mt-3">
@@ -54,15 +54,15 @@
         <h4>Name:  <%= e.name %></h4>
         <h4>Email:  <%= e.email %></h4>
         <h4>Mobile:  <%= e.contact %></h4>
-        <h4>Balence: <%= e.amount %> </h4>
+        <h4>Balance: <%= e.amount %> </h4>
         
     <%}) %>  
       </div>
      
   </div>
-<!-- Reciver -->
+<!-- Receiver -->
   <div class="container bg-primary  text-center p-2 mt-3">
-    <h3 class="text-light fw-4">Reciver Details</h3>
+    <h3 class="text-light fw-4">Receiver Details</h3>
 </div>
    <div class="container">
     <form action="/transfer" method="POST" >
@@ -80,8 +80,8 @@
         </div>
         <div class="form-group  mt-3">
           <label for="exampleInputEmail1">TO</label>
-          <select class="form-select" name="reciverName">
-            <option selected>Select Reciver Name</option>
+          <select class="form-select" name="receiverName">
+            <option selected>Select Receiver Name</option>
             <% records.forEach((e)=>{%>
 
               <option> <%= e.name %></option>
@@ -91,8 +91,8 @@
          
         </div>
         <div class="form-group  mt-3">
-            <select class="form-select"name="reciverEmail">
-            <option selected>Select Reciver Email</option>
+            <select class="form-select"name="receiverEmail">
+            <option selected>Select Receiver Email</option>
             <% records.forEach((e)=>{%>
               <option> <%= e.email %> </option>
 

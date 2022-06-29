@@ -60,24 +60,24 @@
     <div class="container">
       <div class="row align-items-center">
 
-        <div class="col-6 col-xl-2">
-          <h1 class="mb-0 site-logo"><a href="index.html" class="h3 mb-0">Banking<span class="text-primary">.</span>
+        <div class="col-8 col-xl-2">
+          <h1 class="mb-0 site-logo"><a href="/" class="h3 mb-0">Banking<span class="text-primary"></span>
             </a></h1>
         </div>
         <div class="col-12 col-md-10 d-none d-xl-block">
           <nav class="site-navigation position-relative text-right" role="navigation">
 
             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-              <li><a href="#home-section" class="nav-link">Home</a></li>
+              <li><a href="#" class="nav-link">Home</a></li>
               <li class="has-children">
-                <a href="#about-section" class="nav-link">About Us</a>
+                <a href="#" class="nav-link">About Us</a>
                 <ul class="dropdown">
-                  <li><a href="#team-section" class="nav-link">Team</a></li>
-                  <li><a href="#pricing-section" class="nav-link">Pricing</a></li>
-                  <li><a href="#faq-section" class="nav-link">FAQ</a></li>
-                  <li><a href="#gallery-section" class="nav-link">Gallery</a></li>
-                  <li><a href="#services-section" class="nav-link">Services</a></li>
-                  <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>
+                  <li><a href="#" class="nav-link">Team</a></li>
+                  <li><a href="#" class="nav-link">Pricing</a></li>
+                  <li><a href="#" class="nav-link">FAQ</a></li>
+                  <li><a href="#" class="nav-link">Gallery</a></li>
+                  <li><a href="#" class="nav-link">Services</a></li>
+                  <li><a href="#" class="nav-link">Testimonials</a></li>
                   <li class="has-children">
                     <a href="#">More Links</a>
                     <ul class="dropdown">
@@ -90,7 +90,7 @@
               </li>
 
 
-              <li><a href="#blog-section" class="nav-link">Blog</a></li>
+              <!-- <li><a href="#blog-section" class="nav-link">Blog</a></li> -->
               <li><a href="#contact-section" class="nav-link">Contact</a></li>
               <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a>
               </li>
@@ -141,7 +141,7 @@
                                 id="logpass" autocomplete="off">
                               <i class="input-icon uil uil-lock-alt"></i>
                             </div>
-                            <button type="button" class="btn mt-4">Login</button>
+                            <button type="submit" class="btn mt-4">Login</button>
                             <p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your password?</a></p>
                           </form>
                         </div>
@@ -154,6 +154,11 @@
                               <input type="text" name="logname" class="form-style" placeholder="Your Full Name"
                                 id="logname" autocomplete="off">
                               <i class="input-icon uil uil-user"></i>
+                            </div>
+                            <div class="form-group mt-2">
+                              <input type="contact" name="logcontact" class="form-style" placeholder="Your Contact"
+                                id="logcontact" autocomplete="off">
+                              <i class="input-icon uil uil-at"></i>
                             </div>
                             <div class="form-group mt-2">
                               <input type="email" name="logemail" class="form-style" placeholder="Your Email"
@@ -487,7 +492,7 @@
 <script src="js/jquery.fancybox.min.js"></script>
 <script src="js/jquery.sticky.js"></script>
 <script src="js/isotope.pkgd.min.js"></script>
-
+<%- include('./components/bootstrapScript') -%>
 </body>
 
 </html>

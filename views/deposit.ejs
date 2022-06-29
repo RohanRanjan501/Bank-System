@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./components/headTag') -%>
+        <%- include('./components/bootstrapScript') -%>
+            <link rel="stylesheet" href="css/user.css">
+</head>
+
+<body>
+    <%- include('./components/navbar') -%>
+
+        <div class="container">
+            <div class="row">
+                
+                <div style="width: 30%; margin: 30px auto;">
+                    <form action="/deposit" method="post">
+                        <div style="margin:20px;">
+                            <h2>Deposit Money</h2>
+                        </div>
+                        <div style="margin:20px;">
+                            <input name="email" type="text" placeholder="Enter User Email">
+                        </div>
+                        <div style="margin:20px;">
+                            <input name="amount" type="number" placeholder="Enter Amount">
+                        </div>
+                        <div style="margin:20px;">
+                            <button class="btn btn-primary" type="submit">Deposit</button>
+                            <a class="btn btn-primary" id="back">&larr; Back</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <%- include('./components/bootstrapScript') -%>
+</body>
+
+</html>
