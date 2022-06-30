@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./components/headTag') -%>
+        <%- include('./components/bootstrapScript') -%>
+            <link rel="stylesheet" href="css/user.css">
+</head>
+
+<body>
+    <%- include('./components/navbar') -%>
+
+        <div class="container">
+            <div class="row">
+                <div style="text-align: center; width: 30%; margin: 25px auto;">
+                    <img src="images/user.png" alt="User image">
+                    <h1>
+                        <%= user.name %>
+                    </h1>
+                    <h3>Account Balance : <%= user.amount %>
+                    </h3>
+                    <a href="/"><button class="btn-4 btn btn-primary">LOGOUT</button></a>
+                </div>
+                <div style="width: 30%; margin: 30px auto;">
+                    <div><a href="/accountDetails/<%=user._id %>"><button
+                                style="height: 100px; width: 300px; font-size: larger;" class="btn btn-primary">Account
+                                Details</button></a></div>
+                    <div><a href="/view/<%=user._id %>"><button style="height: 100px; width: 300px; font-size: larger;"
+                                class="btn btn-primary">Transfer Money</button></a></div>
+                    <div><a href="/history/<%=user.email %>"><button
+                                style="height: 100px; width: 300px; font-size: larger;" class="btn btn-primary">All
+                                Transactions</button></a></div>
+                </div>
+            </div>
+        </div>
+
+        <%- include('./components/bootstrapScript') -%>
+</body>
+
+</html>
